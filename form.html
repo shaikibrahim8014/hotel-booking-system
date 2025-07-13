@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hotel Booking</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+
+<body>
+    <div class="booking-form">
+        <h2>Hotel Booking</h2>
+        <form id="bookingForm">
+            <div class="input-field">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" required />
+            </div>
+
+            <div class="input-field">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" required />
+            </div>
+
+            <div class="input-field">
+                <label for="checkin">Check-In Date</label>
+                <input type="date" id="checkin" required />
+            </div>
+
+            <div class="input-field">
+                <label for="checkout">Check-Out Date</label>
+                <input type="date" id="checkout" required />
+            </div>
+
+            <div class="input-field">
+                <label for="members">No of Members</label>
+                <input type="number" id="members" min="1" max="4" value="1" required />
+            </div>
+
+            <div class="input-field">
+                <label for="room">Room Type</label>
+                <select id="room" required>
+                    <option value="">Select</option>
+                    <option value="single">Single Room - ₹2,000/night</option>
+                    <option value="double">Double Room - ₹3,500/night</option>
+                    <option value="suite">Suite - ₹6,000/night</option>
+                </select>
+            </div>
+
+            <div class="input-field">
+                <label for="message">Special Requests</label>
+                <textarea id="message" rows="3"></textarea>
+            </div>
+<button type="button" onclick="submitBooking()" >Book Now</button>
+
+           
+        </form>
+    </div>
+
+    <div id="bookingSummary" style="margin-top: 20px; padding: 15px; background: #e6ffe6; border: 1px solid #ccc;">
+    </div>
+
+    <script>
+       function submitBooking() {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const checkin = document.getElementById("checkin").value;
+            const checkout = document.getElementById("checkout").value;
+            const members = document.getElementById("members").value;
+            const room = document.getElementById("room").value;
+            const message = document.getElementById("message").value;
+
+            let pricePerNight = 0;
+            if (room === "single") pricePerNight = 2000;
+            else if (room === "double") pricePerNight = 3500;
+            else if (room === "suite") pricePerNight = 6000;
+
+            const nights = (new Date(checkout) - new Date(checkin)) / (1000 * 60 * 60 * 24);
+            if (nights <= 0 || isNaN(nights)) {
+                alert("Please enter a valid date range.");
+                return;
+            }
+
+            const totalPrice = pricePerNight * nights;
+
+            const bookingInfo = {
+                name,
+                email,
+                checkin,
+                checkout,
+                members,
+                room: room.charAt(0).toUpperCase() + room.slice(1),
+                nights,
+                totalPrice,
+                message: message || "None"
+            };
+
+            localStorage.setItem("bookingData", JSON.stringify(bookingInfo));
+            window.location.href = "summary.html";
+        }
+
+    </script>
+</body>
+
+</html>
