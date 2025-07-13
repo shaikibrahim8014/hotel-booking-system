@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glassmorphism Login Form</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <form id="login-form">
+            <h2>Login Form</h2>
+            <div class="input-field">
+                <input type="text" name="email" required>
+                <label>Enter Your User Id</label>
+            </div>
+            <div class="input-field">
+                <input type="password" name="password" required>
+                <label>Enter your password</label>
+            </div>
+            <div class="forget">
+                <label for="remember">
+                    <input type="checkbox" id="remember">
+                    <p>Remember me</p>
+                </label>
+                <a href="#">Forgot password?</a>
+            </div>
+            <button type="submit">Log In</button>
+            <div class="register">
+                <p>Don't have an account? <a href="#">Register</a></p>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("login-form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const email = document.querySelector('input[name="email"]').value;
+            const password = document.querySelector('input[name="password"]').value;
+
+            const validEmails = ["249y5a3906","249y5a3901","249y5a3904" ,"239y1a3954", "239y1a3928", "239y1a3957"];
+            const validPassword = "darling";
+
+            if (validEmails.includes(email) && password === validPassword) {
+                window.location.href = "dashboard.html";
+            } else {
+                alert("Invalid login");
+            }
+        });
+    </script>
+</body>
+
+</html>

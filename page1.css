@@ -1,0 +1,250 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+.logo-section {
+    display: flex;
+    align-items: center;
+    /* Vertically center text with image */
+    justify-content: center;
+    /* Center the whole block */
+    gap: 20px;
+    /* Space between image and text */
+    padding: 20px;
+}
+
+.logo-section img {
+    width: 100px;
+    height: auto;
+}
+
+.logo-section h1 {
+    font-size: 2em;
+    color: #5643b7;
+    height: auto;
+    
+}
+.logo-section h1::first-letter {
+   
+        color:#5643b7;
+    /* Choose a standout highlight color */
+    font-size: 1.3em;
+    /* Make it slightly larger */
+    font-weight: bold;
+    /* Emphasize the letter */
+    margin-right: 5px;
+    /* Space from the rest of the text */
+}
+/* Header */
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+
+
+
+header h1 {
+    font-size: 5%;
+}
+
+/* Navigation */
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    background-color: #34495e;
+    padding: 10px;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #1abc9c;
+    border-radius: 5px;
+}
+
+/* Main section */
+main {
+    padding: 30px;
+    text-align: center;
+}
+
+main section h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+ div h1{
+    font-size: 2em;
+    color: #5643b7;
+    text-align: center;
+    
+    
+    text-decoration: underline;
+   
+
+}
+/* Contact details */
+.form-section {
+    padding: 40px;
+    max-width: 600px;
+    margin: auto;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+form {
+    width: 100%;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+form label i {
+    margin-right: 8px;
+    color: #5643b7;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+form button {
+    background-color: #5643b7;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: inline-flex;
+    align-items:left;
+    gap: 8px;
+}
+
+form button:hover {
+    background-color: #3f32a2;
+}
+
+/*css for hotel booking*/
+.hotel-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.room-card {
+    background-color: #fff;
+    width: 280px;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+    height: auto;
+}
+
+.room-card:hover {
+    transform: scale(1.03);
+}
+
+.room-card img {
+    width: 100%;
+    height:auto
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.room-card h1 {
+    font-size: 1.4rem;
+    color: #333;
+    margin: 0.8rem 0 0.4rem;
+}
+
+.room-card .rating {
+    font-size: 1rem;
+    color: #f5c518;
+    margin-bottom: 0.5rem;
+}
+
+.room-card p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.facilities {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+.facilities li {
+    font-size: 0.85rem;
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.facilities img {
+    width: 18px;
+    height: 18px;
+}
+
+.room-card button {
+    background-color: #0077cc;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.room-card button:hover {
+    background-color: #005fa3;
+}

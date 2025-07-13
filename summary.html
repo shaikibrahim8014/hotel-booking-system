@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <title>Booking Summary</title>
+    <style>
+        button {
+  display: block;
+  margin: 30px auto;
+  padding: 10px 20px;
+  font-size: 1.1em;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+       body {
+    font-family: 'Segoe UI', sans-serif;
+    max-width: 650px;
+    margin: 40px auto;
+    padding: 30px;
+    background:url('LOGO.PNG') no-repeat center center fixed;
+    background-size: 150px 150px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    border: 1px solid #ccc;
+}
+
+h2 {
+    text-align: center;
+    color: #101211;
+    margin-bottom: 30px;
+    font-size: 2em;
+    letter-spacing: 1px;
+}
+#summary {
+  background: url("LOGO.PNG") no-repeat center center;
+  background-size: cover;
+  padding: 20px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+}
+
+
+
+#summary {
+    background-color: #6d3131;
+    padding: 20px;
+    border-radius: 6px;
+    border: 1px solid #aaa;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+p {
+    font-size: 1.1em;
+    margin: 10px 0;
+    color: #4621bf;
+}
+
+strong {
+    color: #821c1c;
+}
+
+    </style>
+</head>
+
+<body>
+    <h2>IBM Hotel Booking</h2>
+    <div id="summary"></div>
+
+    <script>
+        const bookingData = JSON.parse(localStorage.getItem("bookingData"));
+        if (bookingData) {
+            document.getElementById("summary").innerHTML = `
+        <p><strong>Name:</strong> ${bookingData.name}</p>
+        <p><strong>Email:</strong> ${bookingData.email}</p>
+        <p><strong>Check-In:</strong> ${bookingData.checkin}</p>
+        <p><strong>Check-Out:</strong> ${bookingData.checkout}</p>
+        <p><strong>Members:</strong> ${bookingData.members}</p>
+        <p><strong>Room Type:</strong> ${bookingData.room}</p>
+        <p><strong>Nights:</strong> ${bookingData.nights}</p>
+        <p><strong>Total Cost:</strong> ₹${bookingData.totalPrice}</p>
+        <p><strong>Special Requests:</strong> ${bookingData.message}</p>
+      `;
+        } else {
+            document.getElementById("summary").innerHTML = `<p>No booking information found.</p>`;
+        }
+    </script>
+    <button onclick="downloadPDF()" >Download PDF</button>
+    <script>
+        function downloadPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            const summary = document.getElementById("summary").innerText;
+
+            doc.text(summary, 10, 10);
+            doc.save("booking_summary.pdf");
+        }
+
+    </script>
+</body>
+
+</html>
