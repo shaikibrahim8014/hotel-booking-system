@@ -86,7 +86,8 @@ strong {
     <script>
         const bookingData = JSON.parse(localStorage.getItem("bookingData"));
         if (bookingData) {
-            document.getElementById("summary").innerHTML = `
+            document.getElementById("summary").innerHTML = 
+                <big><strong>IBM HOTEL BOOKING </strong></big>`
         <p><strong>Name:</strong> ${bookingData.name}</p>
         <p><strong>Email:</strong> ${bookingData.email}</p>
         <p><strong>Check-In:</strong> ${bookingData.checkin}</p>
@@ -96,6 +97,7 @@ strong {
         <p><strong>Nights:</strong> ${bookingData.nights}</p>
         <p><strong>Total Cost:</strong> ₹${bookingData.totalPrice}</p>
         <p><strong>Special Requests:</strong> ${bookingData.message}</p>
+        <p> Thank you for your booking</p>
       `;
         } else {
             document.getElementById("summary").innerHTML = `<p>No booking information found.</p>`;
