@@ -94,10 +94,10 @@
                 totalPrice,
                 message: message || "None"
             };
-           let existingList = JSON.parse(localStorage.getItem("bookingData")) || []; existingList.push(bookingInfo); localStorage.setItem("bookingData", JSON.stringify(existingList));
+          /* let existingList = JSON.parse(localStorage.getItem("bookingData")) || []; existingList.push(bookingInfo); localStorage.setItem("bookingData", JSON.stringify(existingList));*/
 
-           /* localStorage.setItem("bookingData", JSON.stringify(bookingInfo));
-            window.location.href = "summary.html";*/
+            localStorage.setItem("bookingData", JSON.stringify(bookingInfo));
+            window.location.href = "summary.html";
         }
 
     </script>
